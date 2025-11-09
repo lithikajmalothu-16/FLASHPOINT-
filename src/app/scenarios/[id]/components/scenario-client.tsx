@@ -343,57 +343,25 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                 </Card>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                {/* AI Feedback */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Lightbulb className="w-5 h-5 text-yellow-400" />
-                      AI Feedback
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 text-muted-foreground">
-                      {evaluation.feedback.split('- ').filter(item => item.trim() !== '').map((point, index) => (
-                        <li key={index} className="flex gap-2">
-                          <CheckCircle2 className="w-5 h-5 mt-1 text-primary flex-shrink-0" />
-                          <span>{point.trim()}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                {/* Performance Chart */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <BarChart className="w-5 h-5 text-accent" />
-                      Performance Analysis
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                     <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[250px]">
-                      <RadarChart data={chartData}>
-                        <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
-                        <PolarAngleAxis dataKey="metric" />
-                        <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} />
-                        <PolarGrid />
-                        <Radar
-                          dataKey="value"
-                          fill="var(--color-value)"
-                          fillOpacity={0.6}
-                          stroke="var(--color-value)"
-                          dot={{
-                            r: 4,
-                            fillOpacity: 1,
-                          }}
-                        />
-                      </RadarChart>
-                    </ChartContainer>
-                  </CardContent>
-                </Card>
-              </div>
+              {/* AI Feedback */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Lightbulb className="w-5 h-5 text-yellow-400" />
+                    AI Feedback
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 text-muted-foreground">
+                    {evaluation.feedback.split('- ').filter(item => item.trim() !== '').map((point, index) => (
+                      <li key={index} className="flex gap-2">
+                        <CheckCircle2 className="w-5 h-5 mt-1 text-primary flex-shrink-0" />
+                        <span>{point.trim()}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
 
                <div className="pt-4 text-center">
                  <Button onClick={handleReset}>
