@@ -14,6 +14,11 @@ import {
   GenerateScenarioImagesInput,
   GenerateScenarioImagesOutput,
 } from '@/ai/flows/generate-scenario-images';
+import {
+  generateOutcomeVideo,
+  GenerateOutcomeVideoInput,
+  GenerateOutcomeVideoOutput,
+} from '@/ai/flows/generate-outcome-video';
 
 export async function getDecisionChoices(
   input: GenerateDecisionChoicesInput
@@ -67,5 +72,13 @@ export async function getScenarioImages(
   // Increase the timeout for this specific action
   // This is a temporary solution for Vercel Hobby tier
   const result = await generateScenarioImages(input);
+  return result;
+}
+
+export async function getOutcomeVideo(
+  input: GenerateOutcomeVideoInput
+): Promise<GenerateOutcomeVideoOutput> {
+  // Note: This can be a long-running operation.
+  const result = await generateOutcomeVideo(input);
   return result;
 }

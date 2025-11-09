@@ -13,6 +13,7 @@ import {
   Target,
   TrendingUp,
   Lightbulb,
+  Film,
 } from 'lucide-react';
 import {
   PolarGrid,
@@ -24,7 +25,7 @@ import {
 } from 'recharts';
 
 import type { Scenario, ScenarioStats } from '@/types';
-import { getDecisionChoices, getDecisionEvaluation } from '@/app/actions';
+import { getDecisionChoices, getDecisionEvaluation, getOutcomeVideo } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
@@ -68,7 +69,16 @@ const renderStats = (stats: string | ScenarioStats | undefined) => {
     if (!stats) return null;
   
     if (typeof stats === 'string') {
-      return <div className="mt-2 text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: stats }} />;
+      return (
+          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              {stats.split('<br>').map((stat, index) => (
+                  <li key={index} className="flex items-start">
+                      <span className="mr-2 mt-1 block h-1.5 w-1.5 rounded-full bg-primary" />
+                      <span>{stat.replace(/• /g, '')}</span>
+                  </li>
+              ))}
+          </ul>
+      );
     }
   
     if (typeof stats === 'object' && stats !== null) {
@@ -106,6 +116,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
   const [startTime, setStartTime] = useState<number | null>(null);
   const [responseTime, setResponseTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [outcomeVideoUrl, setOutcomeVideoUrl] = useState<string | null>(null);
   const { toast } = useToast();
 
   const imageMap = useMemo(() => {
@@ -162,7 +173,32 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
     setIsLoadingEvaluation(true);
     setGameState('evaluating');
     setSelectedChoiceIndex(index);
+    
+    // Use static image as a fallback
     setCurrentImageId(scenario.outcomeImageIds[index % scenario.outcomeImageIds.length]);
+
+    // ** ONLY RUN VIDEO FOR FIRE SCENARIO FOR NOW **
+    if (scenario.id === 'fire_emergency_response_001') {
+      try {
+        toast({
+          title: 'Generating Consequence Video',
+          description: 'The AI is creating a video of the outcome. This may take a minute...',
+        });
+        const videoResult = await getOutcomeVideo({
+          scenarioDescription: scenario.description,
+          userChoice: choice,
+        });
+        setOutcomeVideoUrl(videoResult.videoUrl);
+      } catch (error) {
+        console.error("Video generation failed:", error);
+        toast({
+          variant: "destructive",
+          title: "Video Generation Failed",
+          description: "Could not create the outcome video. Showing a static image instead.",
+        });
+      }
+    }
+
 
     try {
       const result = await getDecisionEvaluation({
@@ -194,6 +230,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
     setStartTime(null);
     setResponseTime(null);
     setElapsedTime(0);
+    setOutcomeVideoUrl(null);
     setCurrentImageId(scenario.initialImageId);
   };
 
@@ -204,13 +241,27 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
     const secs = seconds % 60;
     return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   };
+  
+  const showVideo = !!outcomeVideoUrl && scenario.id === 'fire_emergency_response_001';
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Left Panel: Scenario & Video */}
       <Card className="overflow-hidden">
-        <CardContent className="p-0">
-          {currentImage && (
+        <CardContent className="p-0 bg-black">
+          {showVideo ? (
+              <video
+                key={outcomeVideoUrl}
+                className="w-full aspect-video"
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src={outcomeVideoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : currentImage ? (
             <Image
               src={currentImage.imageUrl}
               width={800}
@@ -220,6 +271,10 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
               className="object-cover w-full aspect-video transition-all duration-500 ease-in-out"
               priority
             />
+          ) : (
+            <div className="w-full aspect-video bg-muted flex items-center justify-center">
+              <Loader2 className="h-8 w-8 animate-spin" />
+            </div>
           )}
         </CardContent>
         <CardHeader>
@@ -263,9 +318,9 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                   <div className="flex flex-col items-center justify-center h-full gap-4 p-6 text-center text-muted-foreground">
                     <Loader2 className="w-8 h-8 animate-spin text-primary" />
                     <p className="text-lg font-semibold">Get ready, Let Us Save Lives !</p>
-                    <Card className="w-full p-4 mt-4 bg-muted/50">
+                     <Card className="w-full p-4 mt-4 bg-muted/50">
                       <CardHeader>
-                        <CardTitle className="text-base text-foreground">Incident Statistics</CardTitle>
+                        <CardTitle className="text-base text-foreground">Incident Dangers</CardTitle>
                       </CardHeader>
                       <CardContent>
                         {renderStats(scenario.stats)}
@@ -290,9 +345,19 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                   ))
                 )}
                 {gameState === 'evaluating' && !isLoadingChoices && (
-                   <div className="flex items-center justify-center p-8 text-muted-foreground">
-                    <Loader2 className="w-8 h-8 mr-4 animate-spin" />
-                    <p>Evaluating consequences...</p>
+                   <div className="flex flex-col items-center justify-center p-8 text-muted-foreground">
+                    {scenario.id === 'fire_emergency_response_001' ? (
+                      <>
+                        <Film className="w-8 h-8 mr-4 animate-pulse" />
+                        <p>Generating video of consequences...</p>
+                        <p className='text-xs'>(This may take up to a minute)</p>
+                      </>
+                    ) : (
+                      <>
+                        <Loader2 className="w-8 h-8 mr-4 animate-spin" />
+                        <p>Evaluating consequences...</p>
+                      </>
+                    )}
                   </div>
                 )}
               </div>
@@ -347,7 +412,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                   <CardTitle className="flex items-center gap-2">
                     <Lightbulb className="w-5 h-5 text-yellow-400" />
                     AI Feedback
-                  </CardTitle>
+                  </Title>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 text-muted-foreground">
