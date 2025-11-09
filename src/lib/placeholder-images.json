@@ -21,7 +21,7 @@
     {
       "id": "scenario-fire_emergency_response_001",
       "description": "A multi-story building with fire and smoke.",
-      "imageUrl": "https://images.unsplash.com/photo-1516567832553-66232148f74c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidWlsZGluZyUyMGZpcmV8ZW58MHx8fHwxNzYyNjYyNjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1516567832553-66232148f74c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidWlsZGluZyUyMGZpcmV8ZW58MHx8fHwxNzYyNjYyNjYxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "building fire"
     },
     {
@@ -39,32 +39,26 @@
     {
       "id": "initial-gas-leak",
       "description": "A gas stove with a visible leak.",
-      "imageUrl": "https://images.unsplash.com/photo-1753156466385-25f3df8e6f81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnYXMlMjBsZWFrfGVufDB8fHx8MTc2MjY2NDc1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1753156466385-25f3df8e6f81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnYXMlMjBsZWFrfGVufDB8fHx8MTc2MjY2NDc1MXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "gas leak"
     },
     {
       "id": "initial-cardiac-arrest",
       "description": "A person clutching their chest in a public place.",
-      "imageUrl": "https://images.unsplash.com/photo-1513224502586-d1e602410265?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoZWFydCUyMGF0dGFja3xlbnwwfHx8fDE3NjI2NjQ3NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1513224502586-d1e602410265?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoZWFydCUyMGF0dGFja3xlbnwwfHx8fDE3NjI2NjQ3NTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "heart attack"
     },
     {
       "id": "initial-fire",
       "description": "A smoke alarm on a ceiling with smoke.",
-      "imageUrl": "https://images.unsplash.com/photo-1608723724234-558f4b72d8f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzbW9rZSUyMGFsYXJtfGVufDB8fHx8MTc2MjY2MjY2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1608723724234-558f4b72d8f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzbW9rZSUyMGFsYXJtfGVufDB8fHx8MTc2MjY2MjY2MXww&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "smoke alarm"
     },
     {
       "id": "initial-electrical-hazard",
       "description": "Sparks coming from an electrical outlet.",
-      "imageUrl": "https://images.unsplash.com/photo-1693776471853-601e595b66d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWxlY3RyaWNhbCUyMGhhemFyZHxlbnwwfHx8fDE3NjI2NjQ3NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1693776471853-601e595b66d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWxlY3RyaWNhbCUyMGhhemFyZHxlbnwwfHx8fDE3NjI2NjQ3NTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "electrical hazard"
-    },
-    {
-      "id": "initial-flood",
-      "description": "A flooded city street with cars partially submerged.",
-      "imageUrl": "https://images.unsplash.com/photo-1583002238470-496695b28b7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmbG9vZHxlbnwwfHx8fDE3NjI2NzIwNzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "flood car"
     },
     {
       "id": "outcome-good-1",
@@ -119,6 +113,12 @@
       "description": "A car being swept away by strong floodwaters.",
       "imageUrl": "https://images.unsplash.com/photo-1613496204728-86c26da4bf32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzd2VwdCUyMGF3YXl8ZW58MHx8fHwxNzYyNjYyNjYxfDA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "swept away"
+    },
+    {
+      "id": "initial-flood",
+      "description": "A flooded city street with cars partially submerged.",
+      "imageUrl": "https://images.unsplash.com/photo-1583002238470-496695b28b7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmbG9vZHxlbnwwfHx8fDE3NjI2NzIwNzV8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "flood car"
     }
   ]
 }
