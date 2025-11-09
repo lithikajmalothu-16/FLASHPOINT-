@@ -229,7 +229,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                   AI Feedback
                 </h4>
                 <div className="p-4 text-sm border rounded-lg bg-muted/20 text-muted-foreground">
-                  <ul className="space-y-2 list-disc list-inside">
+                  <ul className="space-y-4 list-disc list-inside">
                     {evaluation.feedback.split('- ').filter(item => item.trim() !== '').map((item, index) => (
                       <li key={index}>{item.trim()}</li>
                     ))}
