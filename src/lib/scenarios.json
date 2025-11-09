@@ -4,7 +4,7 @@
     "id": "significant_chemical_hazmat_spill_001",
     "title": "Significant Chemical/HazMat Spill",
     "description": "A hazardous chemical container has ruptured in an industrial facility, releasing corrosive liquid across the floor as emergency responders in full PPE deploy absorbent barriers to contain the spread. Workers evacuate through marked routes while the incident commander activates the emergency eyewash station for an exposed employee. The critical window for containment, decontamination protocols, and coordinated evacuation determines whether this remains a localized incident or escalates into a facility-wide emergency.",
-    "stats": "• 190,000+ incidents annually in US<br>• 30,000+ injuries per year<br>• 60% caused by human error",
+    "stats": "• Skin/eye contact causes chemical burns within seconds<br>• Toxic fumes lead to respiratory failure and organ damage<br>• Contaminated runoff spreads hazard to adjacent areas",
     "scoringDimensions": "Containment Speed, Evacuation Safety, PPE Adherence",
     "initialImageId": "initial-chemical-spill",
     "outcomeImageIds": [
@@ -30,7 +30,18 @@
     "id": "cardiac_arrest_mall_001",
     "title": "Cardiac Arrest",
     "description": "A 55-year-old male collapses unconscious in a crowded shopping mall food court at 2:00 PM, displaying shallow breathing and a weak pulse as bystanders immediately call 911 and begin CPR. A trained responder retrieves the nearby AED, applies the pads to the patient's bare chest, and delivers a shock as directed while others manage the crowd. Continuous chest compressions continue until paramedics arrive and assume care.",
-    "stats": "• 356,000 deaths annually in US<br>• 10% survival without immediate intervention<br>• Every minute without CPR = 7-10% less survival chance",
+    "stats": {
+      "age": 55,
+      "gender": "Male",
+      "time": "2:00 PM",
+      "location": "Shopping Mall Food Court",
+      "vitals": {
+        "conscious": false,
+        "breathing": "Shallow",
+        "pulse": "Weak"
+      },
+      "common_info": "• 356,000 deaths annually in US<br>• 10% survival without immediate intervention<br>• Every minute without CPR = 7-10% less survival chance"
+    },
     "scoringDimensions": "CPR Quality, AED Application Speed, Crowd Management",
     "initialImageId": "initial-cardiac-arrest",
     "outcomeImageIds": [
