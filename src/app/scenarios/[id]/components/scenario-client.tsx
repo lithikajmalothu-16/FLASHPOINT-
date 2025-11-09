@@ -72,6 +72,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
   const [selectedChoiceIndex, setSelectedChoiceIndex] = useState<number | null>(null);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [responseTime, setResponseTime] = useState<number | null>(null);
+  const [elapsedTime, setElapsedTime] = useState(0);
   const { toast } = useToast();
 
   const imageMap = useMemo(() => {
@@ -84,9 +85,24 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
   const [currentImageId, setCurrentImageId] = useState(scenario.initialImageId);
 
   useEffect(() => {
-    if (gameState === 'deciding' && startTime === null) {
-      setStartTime(Date.now());
+    let timerInterval: NodeJS.Timeout | null = null;
+
+    if (gameState === 'deciding') {
+      if (startTime === null) {
+        setStartTime(Date.now());
+      }
+      timerInterval = setInterval(() => {
+        setElapsedTime(prevTime => prevTime + 1);
+      }, 1000);
+    } else if (timerInterval) {
+      clearInterval(timerInterval);
     }
+
+    return () => {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+      }
+    };
   }, [gameState, startTime]);
 
   const handleStart = async () => {
@@ -144,6 +160,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
     setSelectedChoiceIndex(null);
     setStartTime(null);
     setResponseTime(null);
+    setElapsedTime(0);
     setCurrentImageId(scenario.initialImageId);
   };
 
@@ -162,6 +179,12 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
       { dimension: 'Safety Protocols', value: evaluation.performanceAnalysis.safetyProtocols },
     ];
   }, [evaluation]);
+  
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  };
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
@@ -204,8 +227,16 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
         {(gameState === 'deciding' || gameState === 'evaluating') && (
           <div className="flex flex-col h-full">
             <CardHeader>
-              <CardTitle className="font-headline">What's your next move?</CardTitle>
-              <CardDescription>Choose the best course of action from the options below.</CardDescription>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="font-headline">What's your next move?</CardTitle>
+                  <CardDescription>Choose the best course of action from the options below.</CardDescription>
+                </div>
+                <div className="flex items-center gap-2 p-2 text-red-500 border border-red-500/50 rounded-lg bg-red-500/10 animate-pulse">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-mono text-lg font-semibold">{formatTime(elapsedTime)}</span>
+                </div>
+              </div>
             </CardHeader>
             <CardContent className="flex-1">
               <div className="space-y-4">
