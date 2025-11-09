@@ -252,7 +252,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                       key={index}
                       variant="outline"
                       size="lg"
-                      className="w-full h-auto justify-start text-left py-3"
+                      className="w-full h-auto justify-start text-left py-3 whitespace-normal"
                       onClick={() => handleSelectChoice(choice, index)}
                       disabled={gameState === 'evaluating'}
                     >
