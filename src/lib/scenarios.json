@@ -30,7 +30,18 @@
     "id": "cardiac_arrest_mall_001",
     "title": "Cardiac Arrest",
     "description": "A 55-year-old male has suffered a cardiac arrest in a crowded shopping mall. Immediate action is required.",
-    "stats": "Age: 55<br>Gender: Male<br>Location: Shopping Mall<br>Condition: Unconscious, weak pulse",
+    "stats": {
+      "age": 55,
+      "gender": "male",
+      "time": "2:00 PM",
+      "location": "Shopping Mall - Food Court",
+      "vitals": {
+        "conscious": false,
+        "breathing": "shallow",
+        "pulse": "weak"
+      },
+      "common_info": "Crowded area, multiple witnesses, AED available nearby."
+    },
     "scoringDimensions": "CPR Quality, AED Application Speed, Crowd Management",
     "initialImageId": "initial-cardiac-arrest",
     "outcomeImageIds": [

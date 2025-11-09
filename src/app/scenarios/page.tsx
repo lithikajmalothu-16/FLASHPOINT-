@@ -9,6 +9,37 @@ import placeholderImages from '@/lib/placeholder-images.json';
 import { FlashpointIcon } from '@/components/icons';
 import { Badge } from '@/components/ui/badge';
 
+const renderStats = (stats: any) => {
+  if (typeof stats === 'string') {
+    return <div className="mt-4 text-xs text-muted-foreground" dangerouslySetInnerHTML={{ __html: stats }} />;
+  }
+
+  if (typeof stats === 'object' && stats !== null) {
+    return (
+      <div className="mt-4 space-y-2 text-xs text-muted-foreground">
+        {stats.age && <p><strong>Age:</strong> {stats.age}</p>}
+        {stats.gender && <p><strong>Gender:</strong> {stats.gender}</p>}
+        {stats.time && <p><strong>Time:</strong> {stats.time}</p>}
+        {stats.location && <p><strong>Location:</strong> {stats.location}</p>}
+        {stats.vitals && (
+          <div>
+            <strong>Vitals:</strong>
+            <ul className="pl-4 list-disc">
+              <li>Conscious: {stats.vitals.conscious ? 'Yes' : 'No'}</li>
+              <li>Breathing: {stats.vitals.breathing}</li>
+              <li>Pulse: {stats.vitals.pulse}</li>
+            </ul>
+          </div>
+        )}
+        {stats.common_info && <p className="pt-2"><em>{stats.common_info}</em></p>}
+      </div>
+    );
+  }
+
+  return null;
+};
+
+
 export default function ScenariosPage() {
   const scenarioImages = placeholderImages.placeholderImages.reduce((acc, img) => {
     acc[img.id] = img;
@@ -60,9 +91,7 @@ export default function ScenariosPage() {
                     <CardContent className="p-6 flex-1">
                       <CardTitle className="font-headline">{scenario.title}</CardTitle>
                       <CardDescription className="mt-2" dangerouslySetInnerHTML={{ __html: scenario.description }} />
-                      {scenario.stats && (
-                        <div className="mt-4 text-xs text-muted-foreground" dangerouslySetInnerHTML={{ __html: scenario.stats }} />
-                      )}
+                      {scenario.stats && renderStats(scenario.stats)}
                     </CardContent>
                     <CardFooter className="p-6 pt-0">
                        <Button asChild className="w-full">

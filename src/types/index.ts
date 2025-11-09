@@ -1,9 +1,22 @@
 
+export type ScenarioStats = {
+  age?: number;
+  gender?: string;
+  time?: string;
+  location?: string;
+  vitals?: {
+    conscious: boolean;
+    breathing: string;
+    pulse: string;
+  };
+  common_info?: string;
+};
+
 export type Scenario = {
   id: string;
   title: string;
   description: string;
-  stats?: string;
+  stats?: string | ScenarioStats;
   scoringDimensions: string;
   initialImageId: string;
   outcomeImageIds: string[];
