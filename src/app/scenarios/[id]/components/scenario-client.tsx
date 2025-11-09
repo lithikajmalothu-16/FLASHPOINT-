@@ -373,7 +373,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
             </CardHeader>
             <CardContent className="flex-1 space-y-6">
               {/* Metrics */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <Card className="p-4">
                   <div className="flex items-center gap-3">
                     <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-green-500/20">
@@ -382,27 +382,15 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                     <h4 className="font-semibold text-muted-foreground">Decision Accuracy</h4>
                   </div>
                   <p className="mt-2 text-3xl font-bold">{evaluation.decisionAccuracy}%</p>
-                  <p className="text-sm text-green-500">Above peer average</p>
-                </Card>
-                 <Card className="p-4">
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-500/20">
-                        <TrendingUp className="w-5 h-5 text-blue-500" />
-                    </div>
-                    <h4 className="font-semibold text-muted-foreground">Confidence Level</h4>
-                  </div>
-                   <p className="mt-2 text-3xl font-bold">{evaluation.confidenceLevel}%</p>
-                   <p className="text-sm text-blue-500">Strong performance</p>
                 </Card>
                 <Card className="p-4">
                    <div className="flex items-center gap-3">
                     <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20">
                       <Clock className="w-5 h-5 text-purple-500" />
                     </div>
-                    <h4 className="font-semibold text-muted-foreground">Avg Response Time</h4>
+                    <h4 className="font-semibold text-muted-foreground">Response Time</h4>
                   </div>
                   <p className="mt-2 text-3xl font-bold">{responseTime?.toFixed(1)}s</p>
-                  <p className="text-sm text-red-500">0.3s improvement</p>
                 </Card>
               </div>
 
