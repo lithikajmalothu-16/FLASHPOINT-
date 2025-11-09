@@ -8,8 +8,9 @@ import scenarios from '@/lib/scenarios.json';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { FlashpointIcon } from '@/components/icons';
 import { Badge } from '@/components/ui/badge';
+import type { ScenarioStats } from '@/types';
 
-const renderStats = (stats: any) => {
+const renderStats = (stats: string | ScenarioStats | undefined) => {
   if (typeof stats === 'string') {
     return <div className="mt-4 text-xs text-muted-foreground" dangerouslySetInnerHTML={{ __html: stats }} />;
   }
@@ -73,7 +74,7 @@ export default function ScenariosPage() {
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
               {scenarios.map((scenario) => {
-                const imageId = `scenario-${scenario.id}`;
+                const imageId = scenario.initialImageId;
                 const image = scenarioImages[imageId];
                 return (
                   <Card key={scenario.id} className="flex flex-col overflow-hidden hover:shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
@@ -91,8 +92,7 @@ export default function ScenariosPage() {
                     </CardHeader>
                     <CardContent className="p-6 flex-1">
                       <CardTitle className="font-headline">{scenario.title}</CardTitle>
-                      <CardDescription className="mt-2">{scenario.description}</CardDescription>
-                      {scenario.stats && renderStats(scenario.stats)}
+                      <CardDescription className="mt-2" dangerouslySetInnerHTML={{ __html: scenario.description }}/>
                     </CardContent>
                     <CardFooter className="p-6 pt-0">
                        <Button asChild className="w-full">

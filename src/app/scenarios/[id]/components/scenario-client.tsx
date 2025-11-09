@@ -233,9 +233,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
         </CardContent>
         <CardHeader>
           <CardTitle className="font-headline">{scenario.title}</CardTitle>
-          <CardDescription className="pt-2">{scenario.context}</CardDescription>
           <div className="pt-2 text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: scenario.description }} />
-          {renderStats(scenario.stats)}
         </CardHeader>
       </Card>
 
