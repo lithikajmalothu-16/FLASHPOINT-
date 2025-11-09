@@ -64,5 +64,18 @@
       "outcome-neutral-1",
       "outcome-bad-1"
     ]
+  },
+  {
+    "id": "flood_emergency_response_001",
+    "title": "Flood Emergency",
+    "description": "Flash flooding has inundated a ground-floor parking garage. Water level is at 2 feet (knee-deep) and rising. A sedan is partially submerged with unknown occupant status. Your response truck is staged at the elevated entrance ramp. Electrical systems may still be energized. You must deploy equipment in the correct sequence to ensure team safety and effective response.",
+    "stats": "• Floodwater moves at lethal speed—6 inches can knock adults down, 12 inches can sweep vehicles<br>• Electrocution risk is immediate—submerged electrical systems remain energized even when power seems off<br>• Contaminated water causes rapid infection—sewage, chemicals, and debris create biohazard conditions within hours",
+    "scoringDimensions": "Team Safety, Victim Assessment, Hazard Isolation",
+    "initialImageId": "initial-flood",
+    "outcomeImageIds": [
+      "outcome-good-3",
+      "outcome-neutral-3",
+      "outcome-bad-3"
+    ]
   }
 ]
