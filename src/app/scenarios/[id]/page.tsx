@@ -23,7 +23,7 @@ export default function ScenarioPage({ params }: { params: { id: string } }) {
     <div className="flex flex-col min-h-screen bg-background">
       <header className="sticky top-0 z-10 flex items-center h-16 px-4 border-b bg-background/80 backdrop-blur-sm md:px-6">
         <Button variant="outline" size="icon" asChild>
-          <Link href="/">
+          <Link href="/scenarios">
             <ChevronLeft className="w-4 h-4" />
             <span className="sr-only">Back to Scenarios</span>
           </Link>

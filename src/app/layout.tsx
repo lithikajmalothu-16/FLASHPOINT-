@@ -3,8 +3,8 @@ import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Flashpoint AI Trainer',
-  description: 'Master Critical Decisions Under Pressure',
+  title: 'AI-Generated Emergency Response Training',
+  description: 'Simulate, Decide, Learn.',
 };
 
 export default function RootLayout({
