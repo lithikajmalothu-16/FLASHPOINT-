@@ -87,7 +87,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
   useEffect(() => {
     let timerInterval: NodeJS.Timeout | null = null;
 
-    if (gameState === 'deciding') {
+    if (gameState === 'deciding' && !isLoadingChoices && choices.length > 0) {
       if (startTime === null) {
         setStartTime(Date.now());
       }
@@ -103,7 +103,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
         clearInterval(timerInterval);
       }
     };
-  }, [gameState, startTime]);
+  }, [gameState, isLoadingChoices, choices, startTime]);
 
   const handleStart = async () => {
     setIsLoadingChoices(true);
