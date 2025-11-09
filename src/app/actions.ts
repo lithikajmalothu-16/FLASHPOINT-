@@ -7,6 +7,7 @@ import {
 import {
   evaluateUserDecision,
   EvaluateUserDecisionInput,
+  EvaluateUserDecisionOutput,
 } from '@/ai/flows/evaluate-user-decisions';
 
 export async function getDecisionChoices(
@@ -28,7 +29,7 @@ export async function getDecisionChoices(
 
 export async function getDecisionEvaluation(
   input: EvaluateUserDecisionInput
-): Promise<{ score: number; feedback: string }> {
+): Promise<EvaluateUserDecisionOutput> {
   try {
     const result = await evaluateUserDecision(input);
     return result;
@@ -38,9 +39,19 @@ export async function getDecisionEvaluation(
     return {
       score: 50,
       feedback:
-        "This is mock feedback because the AI call failed. Your decision to '" +
+        "- This is mock feedback because the AI call failed. \n- Your decision to '" +
         input.userChoice +
-        "' has been noted. In a real scenario, this would have moderate consequences. It's crucial to balance speed and information gathering.",
+        "' has been noted. \n- In a real scenario, this would have moderate consequences. \n- It's crucial to balance speed and information gathering.",
+      decisionAccuracy: 92,
+      confidenceLevel: 87,
+      performanceAnalysis: {
+        decisionSpeed: 80,
+        accuracy: 90,
+        riskAssessment: 70,
+        resourceManagement: 60,
+        communication: 75,
+        safetyProtocols: 95,
+      },
     };
   }
 }

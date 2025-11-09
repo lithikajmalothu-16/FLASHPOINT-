@@ -10,18 +10,58 @@ import {
   Loader2,
   RotateCcw,
   Sparkles,
+  Target,
+  TrendingUp,
 } from 'lucide-react';
+import {
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
+  RadarChart,
+  ResponsiveContainer,
+} from 'recharts';
 
 import type { Scenario, EvaluationResult } from '@/types';
 import { getDecisionChoices, getDecisionEvaluation } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { Skeleton } from '@/components/ui/skeleton';
 import placeholderData from '@/lib/placeholder-images.json';
 import { useToast } from '@/hooks/use-toast';
 
 type GameState = 'intro' | 'deciding' | 'evaluating' | 'feedback';
+
+const chartConfig = {
+  value: {
+    label: 'Value',
+  },
+  'decision-speed': {
+    label: 'Decision Speed',
+    color: 'hsl(var(--chart-1))',
+  },
+  accuracy: {
+    label: 'Accuracy',
+    color: 'hsl(var(--chart-1))',
+  },
+  'risk-assessment': {
+    label: 'Risk Assessment',
+    color: 'hsl(var(--chart-1))',
+  },
+  'resource-management': {
+    label: 'Resource Management',
+    color: 'hsl(var(--chart-1))',
+  },
+  communication: {
+    label: 'Communication',
+    color: 'hsl(var(--chart-1))',
+  },
+  'safety-protocols': {
+    label: 'Safety Protocols',
+    color: 'hsl(var(--chart-1))',
+  },
+} satisfies ChartConfig;
 
 export function ScenarioClient({ scenario }: { scenario: Scenario }) {
   const [gameState, setGameState] = useState<GameState>('intro');
@@ -109,6 +149,20 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
 
   const currentImage = imageMap[currentImageId];
 
+  const chartData = useMemo(() => {
+    if (!evaluation || !evaluation.performanceAnalysis) {
+      return [];
+    }
+    return [
+      { dimension: 'Decision Speed', value: evaluation.performanceAnalysis.decisionSpeed },
+      { dimension: 'Accuracy', value: evaluation.performanceAnalysis.accuracy },
+      { dimension: 'Risk Assessment', value: evaluation.performanceAnalysis.riskAssessment },
+      { dimension: 'Resource Management', value: evaluation.performanceAnalysis.resourceManagement },
+      { dimension: 'Communication', value: evaluation.performanceAnalysis.communication },
+      { dimension: 'Safety Protocols', value: evaluation.performanceAnalysis.safetyProtocols },
+    ];
+  }, [evaluation]);
+
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Left Panel: Scenario & Video */}
@@ -136,12 +190,12 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
       <Card className="flex flex-col">
         {gameState === 'intro' && (
           <div className="flex flex-col items-center justify-center h-full gap-4 p-6 text-center">
-            <AlertCircle className="w-16 h-16 text-accent" />
+            <AlertCircle className="w-16 h-16 text-primary" />
             <h3 className="text-2xl font-semibold font-headline">Your Mission</h3>
             <p className="text-muted-foreground">
               You are faced with a critical situation. Read the scenario description, and when you are ready, begin the simulation to see your choices. Your performance will be evaluated.
             </p>
-            <Button size="lg" className="mt-4 bg-accent text-accent-foreground hover:bg-accent/90" onClick={handleStart}>
+            <Button size="lg" className="mt-4" onClick={handleStart}>
               Begin Simulation
             </Button>
           </div>
@@ -198,44 +252,70 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
             <CardContent className="flex-1 space-y-6">
               {/* Metrics */}
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                <Card className="p-4 bg-muted/50">
-                  <div className="flex items-center gap-2">
-                    <BarChart className="w-5 h-5 text-accent" />
-                    <h4 className="font-semibold">Overall Score</h4>
+                <Card className="p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-green-500/20">
+                      <Target className="w-5 h-5 text-green-500" />
+                    </div>
+                    <h4 className="font-semibold text-muted-foreground">Decision Accuracy</h4>
                   </div>
-                  <p className="mt-2 text-3xl font-bold">{evaluation.score}<span className="text-base font-normal text-muted-foreground">/100</span></p>
-                  <Progress value={evaluation.score} className="mt-2 h-2" />
+                  <p className="mt-2 text-3xl font-bold">{evaluation.decisionAccuracy}%</p>
+                  <p className="text-sm text-green-500">Above peer average</p>
                 </Card>
-                 <Card className="p-4 bg-muted/50">
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-5 h-5 text-accent" />
-                    <h4 className="font-semibold">Response Time</h4>
+                 <Card className="p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-500/20">
+                        <TrendingUp className="w-5 h-5 text-blue-500" />
+                    </div>
+                    <h4 className="font-semibold text-muted-foreground">Confidence Level</h4>
+                  </div>
+                   <p className="mt-2 text-3xl font-bold">{evaluation.confidenceLevel}%</p>
+                   <p className="text-sm text-blue-500">Strong performance</p>
+                </Card>
+                <Card className="p-4">
+                   <div className="flex items-center gap-3">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20">
+                      <Clock className="w-5 h-5 text-purple-500" />
+                    </div>
+                    <h4 className="font-semibold text-muted-foreground">Avg Response Time</h4>
                   </div>
                   <p className="mt-2 text-3xl font-bold">{responseTime?.toFixed(1)}s</p>
-                </Card>
-                <Card className="p-4 bg-muted/50">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-accent" />
-                    <h4 className="font-semibold">Confidence</h4>
-                  </div>
-                  <p className="mt-2 text-3xl font-bold">High</p>
+                  <p className="text-sm text-red-500">0.3s improvement</p>
                 </Card>
               </div>
+              
+              {/* Performance Analysis */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Performance Analysis</CardTitle>
+                </CardHeader>
+                <CardContent>
+                <ChartContainer
+                  config={chartConfig}
+                  className="w-full aspect-square h-[250px]"
+                >
+                  <ResponsiveContainer>
+                    <RadarChart data={chartData}>
+                      <ChartTooltip
+                        cursor={false}
+                        content={<ChartTooltipContent indicator="line" />}
+                      />
+                      <PolarAngleAxis dataKey="dimension" />
+                      <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                      <PolarGrid />
+                      <Radar
+                        dataKey="value"
+                        fill="var(--color-value)"
+                        fillOpacity={0.6}
+                        stroke="var(--color-value)"
+                      />
+                    </RadarChart>
+                  </ResponsiveContainer>
+                </ChartContainer>
+                </CardContent>
+              </Card>
 
-              {/* AI Feedback */}
-              <div>
-                <h4 className="flex items-center mb-2 text-lg font-semibold">
-                  <Sparkles className="w-5 h-5 mr-2 text-accent" />
-                  AI Feedback
-                </h4>
-                <div className="p-4 text-sm border rounded-lg bg-muted/20 text-muted-foreground">
-                  <ul className="space-y-4 list-disc list-inside">
-                    {evaluation.feedback.split('- ').filter(item => item.trim() !== '').map((item, index) => (
-                      <li key={index}>{item.trim()}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+
                <div className="pt-4 text-center">
                  <Button onClick={handleReset}>
                   <RotateCcw className="w-4 h-4 mr-2" />
