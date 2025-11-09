@@ -17,7 +17,7 @@
     "id": "gas_leak_response_001",
     "title": "Gas Leak Response",
     "description": "A natural gas detector alarm triggers in a commercial building, emitting audible warnings as occupants immediately cease all spark-producing operations and open windows for ventilation. The first responder locates and shuts off the gas supply valve at the main meter while initiating building evacuation. Emergency services are called from a safe distance outside the structure to prevent ignition from electronic devices.",
-    "stats": "• 300+ deaths annually from gas leaks<br> • 15,000+ injuries per year<br> • $100M+ property damage<br> • Natural gas/propane most common<br> • 80% preventable with proper response",
+    "stats": "• 300+ deaths annually<br> • 80% preventable with proper response<br> • Explosions can level entire buildings",
     "scoringDimensions": "Ventilation, Source Control, Evacuation",
     "initialImageId": "initial-gas-leak",
     "outcomeImageIds": [
