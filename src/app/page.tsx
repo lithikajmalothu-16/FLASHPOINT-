@@ -29,12 +29,6 @@ export default function Home() {
               Start Simulation
             </Link>
           </Button>
-          <Button asChild variant="secondary" size="lg" className="bg-secondary/50 text-secondary-foreground hover:bg-secondary/70 rounded-full px-8 py-6 text-lg">
-            <Link href="#">
-              <AnalyticsIcon className="mr-2 h-5 w-5" />
-              View Analytics
-            </Link>
-          </Button>
         </div>
       </div>
     </div>
