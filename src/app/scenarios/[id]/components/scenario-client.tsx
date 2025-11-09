@@ -271,7 +271,15 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                 {isLoadingChoices ? (
                   <div className="flex flex-col items-center justify-center h-full gap-4 p-6 text-center text-muted-foreground">
                     <Loader2 className="w-8 h-8 animate-spin text-primary" />
-                    <p className="text-xl font-semibold">Get ready, Let Us Save Lives !</p>
+                    <p className="text-lg font-semibold">Generating choices...</p>
+                    <Card className="w-full p-4 mt-4 bg-muted/50">
+                      <CardHeader>
+                        <CardTitle className="text-base text-foreground">Incident Statistics</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        {renderStats(scenario.stats)}
+                      </CardContent>
+                    </Card>
                   </div>
                 ) : (
                   choices.map((choice, index) => (
