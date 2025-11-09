@@ -83,8 +83,7 @@ export default function ScenariosPage() {
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
               {scenarios.map((scenario) => {
-                const imageId = scenario.initialImageId;
-                const image = scenarioImages[imageId];
+                const image = scenarioImages[scenario.initialImageId];
                 return (
                   <Card key={scenario.id} className="flex flex-col overflow-hidden hover:shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
                     <CardHeader className="p-0">
