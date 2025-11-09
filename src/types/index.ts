@@ -1,7 +1,9 @@
+
 export type Scenario = {
   id: string;
   title: string;
   description: string;
+  stats?: string;
   scoringDimensions: string;
   initialImageId: string;
   outcomeImageIds: string[];

@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,12 +7,11 @@ import { ArrowRight, ChevronLeft } from "lucide-react";
 import scenarios from '@/lib/scenarios.json';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { FlashpointIcon } from '@/components/icons';
+import { Badge } from '@/components/ui/badge';
 
 export default function ScenariosPage() {
   const scenarioImages = placeholderImages.placeholderImages.reduce((acc, img) => {
-    if (img.id.startsWith('scenario-')) {
-      acc[img.id] = img;
-    }
+    acc[img.id] = img;
     return acc;
   }, {} as Record<string, typeof placeholderImages.placeholderImages[0]>);
 
@@ -59,7 +59,10 @@ export default function ScenariosPage() {
                     </CardHeader>
                     <CardContent className="p-6 flex-1">
                       <CardTitle className="font-headline">{scenario.title}</CardTitle>
-                      <CardDescription className="mt-2">{scenario.description.substring(0, 100)}...</CardDescription>
+                      <CardDescription className="mt-2" dangerouslySetInnerHTML={{ __html: scenario.description }} />
+                      {scenario.stats && (
+                        <div className="mt-4 text-xs text-muted-foreground" dangerouslySetInnerHTML={{ __html: scenario.stats }} />
+                      )}
                     </CardContent>
                     <CardFooter className="p-6 pt-0">
                        <Button asChild className="w-full">

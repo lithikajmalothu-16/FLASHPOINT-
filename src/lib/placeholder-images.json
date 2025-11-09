@@ -1,28 +1,52 @@
 {
   "placeholderImages": [
     {
-      "id": "scenario-earthquake",
-      "description": "A city street with rubble after an earthquake.",
-      "imageUrl": "https://images.unsplash.com/photo-1686277604902-b5b344e1be2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjaXR5JTIwcnViYmxlfGVufDB8fHx8MTc2MjY2MjY2MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "city rubble"
+      "id": "scenario-significant_chemical_hazmat_spill_001",
+      "description": "A scientist in a lab looking at a beaker.",
+      "imageUrl": "https://images.unsplash.com/photo-1635725840151-45522bca90b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaGVtaWNhbCUyMHNwaWxsfGVufDB8fHx8MTc2MjY2NDc1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chemical spill"
     },
     {
-      "id": "scenario-fire",
+      "id": "scenario-gas_leak_response_001",
+      "description": "A gas meter on the side of a building.",
+      "imageUrl": "https://images.unsplash.com/photo-1622801185864-874be8248594?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnYXMlMjBtZXRlcnxlbnwwfHx8fDE3NjI2NjQ3NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gas meter"
+    },
+    {
+      "id": "scenario-cardiac_arrest_mall_001",
+      "description": "A person lying on the floor of a shopping mall.",
+      "imageUrl": "https://images.unsplash.com/photo-1567449303078-57ad995bd17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzaG9wcGluZyUyMG1hbGx8ZW58MHx8fHwxNzYyNTg5NjQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shopping mall"
+    },
+    {
+      "id": "scenario-fire_emergency_response_001",
       "description": "A multi-story building with fire and smoke.",
       "imageUrl": "https://images.unsplash.com/photo-1516567832553-66232148f74c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidWlsZGluZyUyMGZpcmV8ZW58MHx8fHwxNzYyNjYyNjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "building fire"
     },
     {
-      "id": "scenario-flood",
-      "description": "A flooded city street with submerged cars.",
-      "imageUrl": "https://images.unsplash.com/photo-1657069343999-39722b95f1d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmbG9vZGVkJTIwc3RyZWV0fGVufDB8fHx8MTc2MjYyNTU5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "flooded street"
+      "id": "scenario-electrical_hazard_response_001",
+      "description": "An electrical panel with many wires.",
+      "imageUrl": "https://images.unsplash.com/photo-1635335874521-7987db781153?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxlbGVjdHJpY2FsJTIwcGFuZWx8ZW58MHx8fHwxNzYyNjE3Nzk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electrical panel"
     },
     {
-      "id": "initial-earthquake",
-      "description": "The interior of a room shaking during an earthquake.",
-      "imageUrl": "https://images.unsplash.com/photo-1679832643917-795f8c933ac1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzaGFraW5nJTIwcm9vbXxlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "shaking room"
+      "id": "initial-chemical-spill",
+      "description": "A chemical spill in a laboratory.",
+      "imageUrl": "https://images.unsplash.com/photo-1698604832593-2984b65b5082?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaGVtaWNhbCUyMHNwaWxsfGVufDB8fHx8MTc2MjY2NDc1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chemical spill"
+    },
+    {
+      "id": "initial-gas-leak",
+      "description": "A gas stove with a visible leak.",
+      "imageUrl": "https://images.unsplash.com/photo-1753156466385-25f3df8e6f81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnYXMlMjBsZWFrfGVufDB8fHx8MTc2MjY2NDc1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gas leak"
+    },
+    {
+      "id": "initial-cardiac-arrest",
+      "description": "A person clutching their chest in a public place.",
+      "imageUrl": "https://images.unsplash.com/photo-1513224502586-d1e602410265?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoZWFydCUyMGF0dGFja3xlbnwwfHx8fDE3NjI2NjQ3NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "heart attack"
     },
     {
       "id": "initial-fire",
@@ -31,10 +55,10 @@
       "imageHint": "smoke alarm"
     },
     {
-      "id": "initial-flood",
-      "description": "Water rising rapidly inside a home.",
-      "imageUrl": "https://images.unsplash.com/photo-1634129820214-d3608e34b2a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyaXNpbmclMjB3YXRlcnxlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "rising water"
+      "id": "initial-electrical-hazard",
+      "description": "Sparks coming from an electrical outlet.",
+      "imageUrl": "https://images.unsplash.com/photo-1693776471853-601e595b66d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWxlY3RyaWNhbCUyMGhhemFyZHxlbnwwfHx8fDE3NjI2NjQ3NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electrical hazard"
     },
     {
       "id": "outcome-good-1",
