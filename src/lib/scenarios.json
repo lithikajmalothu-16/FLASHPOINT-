@@ -15,7 +15,7 @@
   {
     "id": "gas_leak_response_001",
     "title": "Gas Leak Response",
-    "description": "Residential or commercial building, requiring ventilation and source shut-off.",
+    "description": "A gas detector alarm is sounding with a warning light flashing. You need to open windows and doors for ventilation, turn off the gas valve at the meter, and calmly evacuate the building while calling emergency services.",
     "stats": "• 300+ deaths annually from gas leaks<br> • 15,000+ injuries per year<br> • $100M+ property damage<br> • Natural gas/propane most common<br> • 80% preventable with proper response",
     "scoringDimensions": "Ventilation, Source Control, Evacuation",
     "initialImageId": "initial-gas-leak",
@@ -28,7 +28,7 @@
   {
     "id": "cardiac_arrest_mall_001",
     "title": "Cardiac Arrest",
-    "description": "A 55-year-old male has collapsed in a crowded shopping mall. He is unconscious, with shallow breathing and a weak pulse. Immediate action is required.",
+    "description": "A 55-year-old male has collapsed in a crowded shopping mall. He is unconscious, with shallow breathing and a weak pulse. Immediate action is required. You must initiate CPR, prepare and use the Automated External Defibrillator (AED), and manage the crowd while calling for help.",
     "stats": {
       "age": 55,
       "gender": "male",
@@ -52,7 +52,7 @@
   {
     "id": "fire_emergency_response_001",
     "title": "Fire Emergency Response",
-    "description": "Office or commercial setting, requiring fire suppression and rapid evacuation.",
+    "description": "Flames and smoke are spreading in an office. You must use a fire extinguisher following the PASS method, pull the fire alarm, and guide people to evacuate through a marked exit as smoke detectors activate.",
     "stats": "• 3,340 workplace fires daily<br> • 200+ deaths, 5,000+ injuries yearly<br> • $2.3B annual damage<br> • Leading cause: electrical (23%)<br> • OSHA requires evacuation training",
     "scoringDimensions": "Alarm Activation Speed, Extinguisher Use, Evacuation Path",
     "initialImageId": "initial-fire",
@@ -65,7 +65,7 @@
   {
     "id": "electrical_hazard_response_001",
     "title": "Electrical Hazard Response",
-    "description": "Workplace or construction site, requiring immediate power shut-off and PPE.",
+    "description": "At a construction site, an electrical panel is sparking, creating an arc flash hazard. You must use insulated tools and wear appropriate PPE (rubber gloves, face shield) to switch off the circuit breaker and apply lockout/tagout devices.",
     "stats": "• 300+ electrocution deaths annually<br> • 4,000+ non-fatal injuries<br> • #5 cause of workplace deaths<br> • Construction industry: 52% of deaths<br> • 80% involve power lines/equipment",
     "scoringDimensions": "Power Deactivation, PPE Usage, Hazard Isolation",
     "initialImageId": "initial-electrical-hazard",
