@@ -30,18 +30,7 @@
     "id": "cardiac_arrest_mall_001",
     "title": "Cardiac Arrest",
     "description": "A 55-year-old male collapses unconscious in a crowded shopping mall food court at 2:00 PM, displaying shallow breathing and a weak pulse as bystanders immediately call 911 and begin CPR. A trained responder retrieves the nearby AED, applies the pads to the patient's bare chest, and delivers a shock as directed while others manage the crowd. Continuous chest compressions continue until paramedics arrive and assume care.",
-    "stats": {
-      "age": 55,
-      "gender": "male",
-      "time": "2:00 PM",
-      "location": "Shopping Mall - Food Court",
-      "vitals": {
-        "conscious": false,
-        "breathing": "shallow",
-        "pulse": "weak"
-      },
-      "common_info": "Crowded area, multiple witnesses, AED available nearby."
-    },
+    "stats": "• 356,000 deaths annually in US<br>• 10% survival without immediate intervention<br>• Every minute without CPR = 7-10% less survival chance",
     "scoringDimensions": "CPR Quality, AED Application Speed, Crowd Management",
     "initialImageId": "initial-cardiac-arrest",
     "outcomeImageIds": [

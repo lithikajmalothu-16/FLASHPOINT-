@@ -205,15 +205,6 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
     return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   };
 
-  const chartData = evaluation ? [
-    { metric: 'decision-speed', value: evaluation.performanceAnalysis.decisionSpeed },
-    { metric: 'accuracy', value: evaluation.performanceAnalysis.accuracy },
-    { metric: 'risk-assessment', value: evaluation.performanceAnalysis.riskAssessment },
-    { metric: 'resource-management', value: evaluation.performanceAnalysis.resourceManagement },
-    { metric: 'communication', value: evaluation.performanceAnalysis.communication },
-    { metric: 'safety-protocols', value: evaluation.performanceAnalysis.safetyProtocols },
-  ] : [];
-
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Left Panel: Scenario & Video */}
@@ -271,7 +262,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                 {isLoadingChoices ? (
                   <div className="flex flex-col items-center justify-center h-full gap-4 p-6 text-center text-muted-foreground">
                     <Loader2 className="w-8 h-8 animate-spin text-primary" />
-                    <p className="text-lg font-semibold">Generating choices...</p>
+                    <p className="text-lg font-semibold">Get ready, Let Us Save Lives !</p>
                     <Card className="w-full p-4 mt-4 bg-muted/50">
                       <CardHeader>
                         <CardTitle className="text-base text-foreground">Incident Statistics</CardTitle>
