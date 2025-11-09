@@ -25,7 +25,7 @@ const renderStats = (stats: any) => {
           <div>
             <strong>Vitals:</strong>
             <ul className="pl-4 list-disc">
-              <li>Conscious: {stats.vitals.conscious ? 'Yes' : 'No'}</li>
+              <li>Conscious: {stats.vitals.conscious ? 'No' : 'Yes'}</li>
               <li>Breathing: {stats.vitals.breathing}</li>
               <li>Pulse: {stats.vitals.pulse}</li>
             </ul>
@@ -73,7 +73,8 @@ export default function ScenariosPage() {
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
               {scenarios.map((scenario) => {
-                const image = scenarioImages[`scenario-${scenario.id}`];
+                const imageId = `scenario-${scenario.id}`;
+                const image = scenarioImages[imageId];
                 return (
                   <Card key={scenario.id} className="flex flex-col overflow-hidden hover:shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
                     <CardHeader className="p-0">
@@ -90,7 +91,7 @@ export default function ScenariosPage() {
                     </CardHeader>
                     <CardContent className="p-6 flex-1">
                       <CardTitle className="font-headline">{scenario.title}</CardTitle>
-                      <CardDescription className="mt-2" dangerouslySetInnerHTML={{ __html: scenario.description }} />
+                      <CardDescription className="mt-2">{scenario.description}</CardDescription>
                       {scenario.stats && renderStats(scenario.stats)}
                     </CardContent>
                     <CardFooter className="p-6 pt-0">

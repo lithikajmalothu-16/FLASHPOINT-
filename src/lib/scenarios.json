@@ -1,4 +1,3 @@
-
 [
   {
     "id": "significant_chemical_hazmat_spill_001",
@@ -29,7 +28,7 @@
   {
     "id": "cardiac_arrest_mall_001",
     "title": "Cardiac Arrest",
-    "description": "A 55-year-old male has suffered a cardiac arrest in a crowded shopping mall. Immediate action is required.",
+    "description": "A 55-year-old male has collapsed in a crowded shopping mall. He is unconscious, with shallow breathing and a weak pulse. Immediate action is required.",
     "stats": {
       "age": 55,
       "gender": "male",
