@@ -43,7 +43,7 @@
     "id": "fire_emergency_response_001",
     "title": "Fire Emergency Response",
     "description": "Flames erupt from an electrical panel in a commercial office, rapidly spreading smoke as an employee activates the nearest pull station alarm and another grabs a Class C extinguisher to attack the fire's base using the PASS method. Smoke detectors throughout the building activate while illuminated exit signs guide occupants to evacuation routes. The fire safety warden ensures complete evacuation through designated assembly points while accounting for all personnel.",
-    "stats": "• 3,340 workplace fires daily<br> • 200+ deaths, 5,000+ injuries yearly<br> • $2.3B annual damage<br> • Leading cause: electrical (23%)<br> • OSHA requires evacuation training",
+    "stats": "• Smoke inhalation kills faster than flames—3 breaths can be fatal<br>• Flashover occurs in 3-5 minutes, reaching 1,000°F instantly<br>• Toxic gases (CO, cyanide) cause disorientation and collapse",
     "scoringDimensions": "Alarm Activation Speed, Extinguisher Use, Evacuation Path",
     "initialImageId": "initial-fire",
     "outcomeImageIds": [
@@ -56,7 +56,7 @@
     "id": "electrical_hazard_response_001",
     "title": "Electrical Hazard Response",
     "description": "A maintenance worker approaches a 480-volt electrical panel, first executing lockout/tagout procedures by switching off the circuit breaker, attaching a personal safety lock, and testing for zero voltage while wearing Class 0 rubber gloves and an arc-rated face shield. A nearby energized panel suddenly experiences an arc flash, producing intense light and heat as the worker immediately retreats to a safe distance. Emergency shutdown of the electrical system is initiated while the affected area is secured and assessed for damage.",
-    "stats": "• 300+ electrocution deaths annually<br> • 4,000+ non-fatal injuries<br> • #5 cause of workplace deaths<br> • Construction industry: 52% of deaths<br> • 80% involve power lines/equipment",
+    "stats": "• 300+ deaths, 4,000+ injuries annually<br> • Arc flash temps reach 35,000°F (4x hotter than sun)<br> • 80% of deaths from bypassed safety protocols",
     "scoringDimensions": "Power Deactivation, PPE Usage, Hazard Isolation",
     "initialImageId": "initial-electrical-hazard",
     "outcomeImageIds": [
