@@ -1,0 +1,45 @@
+
+[
+  {
+    "id": "earthquake",
+    "title": "Urban Earthquake Response",
+    "description": "You are an incident commander in a major city that has just been struck by a 7.2 magnitude earthquake. Communications are down, and there are reports of multiple building collapses and fires. Your immediate decisions will determine the effectiveness of the initial response.",
+    "scoringDimensions": "Casualty Reduction, Resource Management, Safety Prioritization",
+    "initialImageId": "initial-earthquake",
+    "outcomeImageIds": [
+      "outcome-good-1",
+      "outcome-neutral-1",
+      "outcome-bad-1",
+      "outcome-neutral-1",
+      "outcome-good-1"
+    ]
+  },
+  {
+    "id": "fire",
+    "title": "High-Rise Office Fire",
+    "description": "A fire has broken out on the 15th floor of a 30-story office building during work hours. The sprinkler system has failed, and smoke is spreading rapidly. As the first fire chief on the scene, you must coordinate evacuation and suppression efforts.",
+    "scoringDimensions": "Evacuation Efficiency, Fire Containment, Team Safety",
+    "initialImageId": "initial-fire",
+    "outcomeImageIds": [
+      "outcome-good-2",
+      "outcome-neutral-2",
+      "outcome-bad-2",
+      "outcome-neutral-2",
+      "outcome-good-2"
+    ]
+  },
+  {
+    "id": "flood",
+    "title": "Flash Flood Evacuation",
+    "description": "Unexpectedly heavy rainfall has caused a dam to breach, leading to a flash flood in a downstream town. You are in charge of emergency services and must prioritize evacuation routes and rescue operations for a population of 5,000 people with limited time and resources.",
+    "scoringDimensions": "Public Warning Effectiveness, Rescue Prioritization, Shelter Management",
+    "initialImageId": "initial-flood",
+    "outcomeImageIds": [
+      "outcome-good-3",
+      "outcome-neutral-3",
+      "outcome-bad-3",
+      "outcome-neutral-3",
+      "outcome-good-3"
+    ]
+  }
+]

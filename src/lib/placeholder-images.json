@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "scenario-earthquake",
+      "description": "A city street with rubble after an earthquake.",
+      "imageUrl": "https://images.unsplash.com/photo-1686277604902-b5b344e1be2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjaXR5JTIwcnViYmxlfGVufDB8fHx8MTc2MjY2MjY2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city rubble"
+    },
+    {
+      "id": "scenario-fire",
+      "description": "A multi-story building with fire and smoke.",
+      "imageUrl": "https://images.unsplash.com/photo-1516567832553-66232148f74c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidWlsZGluZyUyMGZpcmV8ZW58MHx8fHwxNzYyNjYyNjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "building fire"
+    },
+    {
+      "id": "scenario-flood",
+      "description": "A flooded city street with submerged cars.",
+      "imageUrl": "https://images.unsplash.com/photo-1657069343999-39722b95f1d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmbG9vZGVkJTIwc3RyZWV0fGVufDB8fHx8MTc2MjYyNTU5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flooded street"
+    },
+    {
+      "id": "initial-earthquake",
+      "description": "The interior of a room shaking during an earthquake.",
+      "imageUrl": "https://images.unsplash.com/photo-1679832643917-795f8c933ac1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzaGFraW5nJTIwcm9vbXxlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shaking room"
+    },
+    {
+      "id": "initial-fire",
+      "description": "A smoke alarm on a ceiling with smoke.",
+      "imageUrl": "https://images.unsplash.com/photo-1608723724234-558f4b72d8f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzbW9rZSUyMGFsYXJtfGVufDB8fHx8MTc2MjY2MjY2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smoke alarm"
+    },
+    {
+      "id": "initial-flood",
+      "description": "Water rising rapidly inside a home.",
+      "imageUrl": "https://images.unsplash.com/photo-1634129820214-d3608e34b2a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyaXNpbmclMjB3YXRlcnxlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rising water"
+    },
+    {
+      "id": "outcome-good-1",
+      "description": "A group of people safe and sound after an emergency.",
+      "imageUrl": "https://images.unsplash.com/photo-1760774123109-f4b9e6083970?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwZW9wbGUlMjBzYWZlfGVufDB8fHx8MTc2MjY2MjY2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "people safe"
+    },
+    {
+      "id": "outcome-neutral-1",
+      "description": "Paramedics helping an injured person.",
+      "imageUrl": "https://images.unsplash.com/photo-1722974180453-305758503804?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwYXJhbWVkaWNzJTIwaGVscGluZ3xlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "paramedics helping"
+    },
+    {
+      "id": "outcome-bad-1",
+      "description": "A building that has collapsed into rubble.",
+      "imageUrl": "https://images.unsplash.com/photo-1543770544-a4c949d66f4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdHJ1Y3R1cmUlMjBjb2xsYXBzZXxlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "structure collapse"
+    },
+    {
+      "id": "outcome-good-2",
+      "description": "A fire that has been successfully contained by firefighters.",
+      "imageUrl": "https://images.unsplash.com/photo-1615842788685-40678531fa40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmaXJlJTIwY29udGFpbmVkfGVufDB8fHx8MTc2MjY2MjY2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fire contained"
+    },
+    {
+      "id": "outcome-neutral-2",
+      "description": "A fire truck arriving at the scene of a fire.",
+      "imageUrl": "https://images.unsplash.com/photo-1627643736393-5326f383d180?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmaXJlJTIwdHJ1Y2slMjBhcnJpdmluZ3xlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fire truck arriving"
+    },
+    {
+      "id": "outcome-bad-2",
+      "description": "A fire spreading to adjacent buildings.",
+      "imageUrl": "https://images.unsplash.com/photo-1660262848906-319f55766d2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmaXJlJTIwc3ByZWFkaW5nfGVufDB8fHx8MTc2MjY2MjY2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fire spreading"
+    },
+    {
+      "id": "outcome-good-3",
+      "description": "People being rescued from floodwaters by a boat.",
+      "imageUrl": "https://images.unsplash.com/photo-1625890916462-c79eb270068c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxib2F0JTIwcmVzY3VlfGVufDB8fHx8MTc2MjY2MjY2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "boat rescue"
+    },
+    {
+      "id": "outcome-neutral-3",
+      "description": "People waiting on a rooftop for rescue during a flood.",
+      "imageUrl": "https://images.unsplash.com/photo-1671629193525-6f4015619ed8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3YWl0aW5nJTIwaGlnaCUyMGdyb3VuZHxlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "waiting high ground"
+    },
+    {
+      "id": "outcome-bad-3",
+      "description": "A car being swept away by strong floodwaters.",
+      "imageUrl": "https://images.unsplash.com/photo-1613496204728-86c26da4bf32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzd2VwdCUyMGF3YXl8ZW58MHx8fHwxNzYyNjYyNjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "swept away"
+    }
+  ]
 }
