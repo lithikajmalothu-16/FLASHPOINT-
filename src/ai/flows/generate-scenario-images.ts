@@ -52,6 +52,7 @@ const imageGenPrompt = ai.definePrompt({
   input: {
     schema: z.object({
       scenarioDescription: z.string(),
+      imageCount: z.number(),
     }),
   },
   output: {
@@ -59,11 +60,11 @@ const imageGenPrompt = ai.definePrompt({
       prompts: z
         .array(z.string())
         .describe(
-          'An array of 3 distinct, descriptive text-to-image prompts that visually tell a story about the provided emergency scenario. Each prompt should describe a unique moment or perspective of the scene. Focus on creating photorealistic, cinematic, and impactful images.'
+          'An array of distinct, descriptive text-to-image prompts that visually tell a story about the provided emergency scenario. Each prompt should describe a unique moment or perspective of the scene. Focus on creating photorealistic, cinematic, and impactful images.'
         ),
     }),
   },
-  prompt: `Based on the following emergency scenario, generate a sequence of text-to-image prompts to create a visual narrative.
+  prompt: `Based on the following emergency scenario, generate a sequence of {{{imageCount}}} text-to-image prompts to create a visual narrative.
 
 Scenario: {{{scenarioDescription}}}`,
 });
@@ -76,28 +77,44 @@ const generateScenarioImagesFlow = ai.defineFlow(
   },
   async ({scenarioDescription, imageCount}) => {
     // 1. Generate a set of image prompts from the scenario
-    const {output: promptGenOutput} = await imageGenPrompt({scenarioDescription});
+    const {output: promptGenOutput} = await imageGenPrompt({
+        scenarioDescription,
+        imageCount,
+      });
     if (!promptGenOutput) {
       throw new Error('Could not generate image prompts.');
     }
 
-    const imagePrompts = promptGenOutput.prompts.slice(0, imageCount);
+    const imagePrompts = promptGenOutput.prompts;
 
     // 2. Generate an image for each prompt in parallel
     const imagePromises = imagePrompts.map(async prompt => {
       console.log(`Generating image for prompt: "${prompt}"`);
-      const {media} = await ai.generate({
-        model: 'googleai/imagen-4.0-fast-generate-001',
-        prompt: `Action shot, dramatic lighting, photorealistic: ${prompt}`,
-      });
-      return {
-        prompt: prompt,
-        url: media.url,
-      };
+      try {
+        const {media} = await ai.generate({
+            model: 'googleai/imagen-4.0-fast-generate-001',
+            prompt: `Action shot, dramatic lighting, photorealistic: ${prompt}`,
+          });
+          return {
+            prompt: prompt,
+            url: media.url,
+          };
+      } catch (e) {
+        console.error(`Failed to generate image for prompt: "${prompt}"`, e);
+        // Return a placeholder or null so that Promise.all doesn't fail completely
+        return null;
+      }
     });
 
-    const images = await Promise.all(imagePromises);
+    const settledImages = await Promise.all(imagePromises);
+    
+    // Filter out any failed generations
+    const images = settledImages.filter(img => img !== null) as {prompt: string, url: string}[];
 
+    if (images.length === 0 && imagePrompts.length > 0) {
+      throw new Error("All image generations failed. Please check the logs.");
+    }
+    
     return {images};
   }
 );

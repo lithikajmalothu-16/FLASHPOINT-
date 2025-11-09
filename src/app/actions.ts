@@ -64,12 +64,8 @@ export async function getDecisionEvaluation(
 export async function getScenarioImages(
   input: GenerateScenarioImagesInput
 ): Promise<GenerateScenarioImagesOutput> {
-  try {
-    const result = await generateScenarioImages(input);
-    return result;
-  } catch (error) {
-    console.error('Error generating scenario images:', error);
-    // Return an empty array on failure
-    return { images: [] };
-  }
+  // Increase the timeout for this specific action
+  // This is a temporary solution for Vercel Hobby tier
+  const result = await generateScenarioImages(input);
+  return result;
 }
