@@ -53,7 +53,7 @@
   {
     "id": "fire_emergency_response_001",
     "title": "Fire Emergency Response",
-    "description": "Flames/smoke spreading<br> Fire extinguisher being used (PASS method)<br> Person pulling fire alarm<br> Evacuation through marked exit<br> Smoke detectors activating<br> Emergency exit signage lighting up<br> **CLEAR VISUALS:** Fire effects, extinguisher spray, alarm activation, exit routes",
+    "description": "Flames erupt from an electrical panel in a commercial office, rapidly spreading smoke as an employee activates the nearest pull station alarm and another grabs a Class C extinguisher to attack the fire's base using the PASS method. Smoke detectors throughout the building activate while illuminated exit signs guide occupants to evacuation routes. The fire safety warden ensures complete evacuation through designated assembly points while accounting for all personnel.",
     "stats": "• 3,340 workplace fires daily<br> • 200+ deaths, 5,000+ injuries yearly<br> • $2.3B annual damage<br> • Leading cause: electrical (23%)<br> • OSHA requires evacuation training",
     "scoringDimensions": "Alarm Activation Speed, Extinguisher Use, Evacuation Path",
     "initialImageId": "initial-fire",
