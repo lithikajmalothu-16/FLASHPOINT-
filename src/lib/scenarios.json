@@ -1,3 +1,4 @@
+
 [
   {
     "id": "significant_chemical_hazmat_spill_001",
@@ -28,7 +29,7 @@
   {
     "id": "cardiac_arrest_mall_001",
     "title": "Cardiac Arrest",
-    "description": "A 55-year-old male has collapsed in a crowded shopping mall. He is unconscious, with shallow breathing and a weak pulse. Immediate action is required. You must initiate CPR, prepare and use the Automated External Defibrillator (AED), and manage the crowd while calling for help.",
+    "description": "A 55-year-old male collapses unconscious in a crowded shopping mall food court at 2:00 PM, displaying shallow breathing and a weak pulse as bystanders immediately call 911 and begin CPR. A trained responder retrieves the nearby AED, applies the pads to the patient's bare chest, and delivers a shock as directed while others manage the crowd. Continuous chest compressions continue until paramedics arrive and assume care.",
     "stats": {
       "age": 55,
       "gender": "male",
@@ -52,7 +53,7 @@
   {
     "id": "fire_emergency_response_001",
     "title": "Fire Emergency Response",
-    "description": "Flames and smoke are spreading in an office. You must use a fire extinguisher following the PASS method, pull the fire alarm, and guide people to evacuate through a marked exit as smoke detectors activate.",
+    "description": "Flames/smoke spreading<br> Fire extinguisher being used (PASS method)<br> Person pulling fire alarm<br> Evacuation through marked exit<br> Smoke detectors activating<br> Emergency exit signage lighting up<br> **CLEAR VISUALS:** Fire effects, extinguisher spray, alarm activation, exit routes",
     "stats": "• 3,340 workplace fires daily<br> • 200+ deaths, 5,000+ injuries yearly<br> • $2.3B annual damage<br> • Leading cause: electrical (23%)<br> • OSHA requires evacuation training",
     "scoringDimensions": "Alarm Activation Speed, Extinguisher Use, Evacuation Path",
     "initialImageId": "initial-fire",
@@ -65,7 +66,7 @@
   {
     "id": "electrical_hazard_response_001",
     "title": "Electrical Hazard Response",
-    "description": "At a construction site, an electrical panel is sparking, creating an arc flash hazard. You must use insulated tools and wear appropriate PPE (rubber gloves, face shield) to switch off the circuit breaker and apply lockout/tagout devices.",
+    "description": "Electrical panel with warning labels<br> Lockout/tagout devices on equipment<br> Person using insulated tools<br> Sparks/arc flash effects<br> PPE (rubber gloves, face shield)<br> Circuit breaker being switched off<br> **CLEAR VISUALS:** Electrical equipment, lockout tags, tools, safety gear, sparks",
     "stats": "• 300+ electrocution deaths annually<br> • 4,000+ non-fatal injuries<br> • #5 cause of workplace deaths<br> • Construction industry: 52% of deaths<br> • 80% involve power lines/equipment",
     "scoringDimensions": "Power Deactivation, PPE Usage, Hazard Isolation",
     "initialImageId": "initial-electrical-hazard",
