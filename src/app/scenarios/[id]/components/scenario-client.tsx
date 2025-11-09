@@ -412,7 +412,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                   <CardTitle className="flex items-center gap-2">
                     <Lightbulb className="w-5 h-5 text-yellow-400" />
                     AI Feedback
-                  </Title>
+                  </CardTitle >
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 text-muted-foreground">
