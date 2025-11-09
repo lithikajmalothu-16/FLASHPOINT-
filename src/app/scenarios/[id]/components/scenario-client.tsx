@@ -269,11 +269,10 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
             <CardContent className="flex-1">
               <div className="space-y-4">
                 {isLoadingChoices ? (
-                  <>
-                    <Skeleton className="w-full h-12" />
-                    <Skeleton className="w-full h-12" />
-                    <Skeleton className="w-full h-12" />
-                  </>
+                  <div className="flex flex-col items-center justify-center h-full gap-4 p-6 text-center text-muted-foreground">
+                    <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                    <p className="text-xl font-semibold">Get ready, Let Us Save Lives !</p>
+                  </div>
                 ) : (
                   choices.map((choice, index) => (
                     <Button
@@ -291,7 +290,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                     </Button>
                   ))
                 )}
-                {gameState === 'evaluating' && (
+                {gameState === 'evaluating' && !isLoadingChoices && (
                    <div className="flex items-center justify-center p-8 text-muted-foreground">
                     <Loader2 className="w-8 h-8 mr-4 animate-spin" />
                     <p>Evaluating consequences...</p>
