@@ -51,10 +51,10 @@ const renderStats = (stats: string | ScenarioStats | undefined) => {
 
 
 export default function ScenariosPage() {
-  const scenarioImages = placeholderImages.placeholderImages.reduce((acc, img) => {
+  const imageMap = placeholderImages.placeholderImages.reduce((acc, img) => {
     acc[img.id] = img;
     return acc;
-  }, {} as Record<string, typeof placeholderImages.placeholderImages[0]>);
+  }, {} as Record<string, (typeof placeholderImages.placeholderImages)[0]>);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -83,7 +83,7 @@ export default function ScenariosPage() {
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
               {scenarios.map((scenario) => {
-                const image = scenarioImages[scenario.initialImageId];
+                const image = imageMap[scenario.initialImageId];
                 return (
                   <Card key={scenario.id} className="flex flex-col overflow-hidden hover:shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
                     <CardHeader className="p-0">
