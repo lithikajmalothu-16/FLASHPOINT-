@@ -16,6 +16,7 @@ export type Scenario = {
   id: string;
   title: string;
   description: string;
+  context: string;
   stats?: string | ScenarioStats;
   scoringDimensions: string;
   initialImageId: string;

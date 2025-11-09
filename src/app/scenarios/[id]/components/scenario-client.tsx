@@ -23,7 +23,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-import type { Scenario, EvaluationResult } from '@/types';
+import type { Scenario, ScenarioStats } from '@/types';
 import { getDecisionChoices, getDecisionEvaluation } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -64,12 +64,44 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
+const renderStats = (stats: string | ScenarioStats | undefined) => {
+    if (!stats) return null;
+  
+    if (typeof stats === 'string') {
+      return <div className="mt-2 text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: stats }} />;
+    }
+  
+    if (typeof stats === 'object' && stats !== null) {
+      return (
+        <div className="mt-2 space-y-2 text-sm text-muted-foreground">
+          {stats.age && <p><strong>Age:</strong> {stats.age}</p>}
+          {stats.gender && <p><strong>Gender:</strong> {stats.gender}</p>}
+          {stats.time && <p><strong>Time:</strong> {stats.time}</p>}
+          {stats.location && <p><strong>Location:</strong> {stats.location}</p>}
+          {stats.vitals && (
+            <div>
+              <strong>Vitals:</strong>
+              <ul className="pl-4 list-disc">
+                <li>Conscious: {stats.vitals.conscious ? 'Yes' : 'No'}</li>
+                <li>Breathing: {stats.vitals.breathing}</li>
+                <li>Pulse: {stats.vitals.pulse}</li>
+              </ul>
+            </div>
+          )}
+          {stats.common_info && <p className="pt-2"><em>{stats.common_info}</em></p>}
+        </div>
+      );
+    }
+  
+    return null;
+  };
+
 export function ScenarioClient({ scenario }: { scenario: Scenario }) {
   const [gameState, setGameState] = useState<GameState>('intro');
   const [isLoadingChoices, setIsLoadingChoices] = useState(false);
   const [isLoadingEvaluation, setIsLoadingEvaluation] = useState(false);
   const [choices, setChoices] = useState<string[]>([]);
-  const [evaluation, setEvaluation] = useState<EvaluationResult | null>(null);
+  const [evaluation, setEvaluation] = useState<any | null>(null);
   const [selectedChoiceIndex, setSelectedChoiceIndex] = useState<number | null>(null);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [responseTime, setResponseTime] = useState<number | null>(null);
@@ -173,6 +205,15 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
     return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   };
 
+  const chartData = evaluation ? [
+    { metric: 'decision-speed', value: evaluation.performanceAnalysis.decisionSpeed },
+    { metric: 'accuracy', value: evaluation.performanceAnalysis.accuracy },
+    { metric: 'risk-assessment', value: evaluation.performanceAnalysis.riskAssessment },
+    { metric: 'resource-management', value: evaluation.performanceAnalysis.resourceManagement },
+    { metric: 'communication', value: evaluation.performanceAnalysis.communication },
+    { metric: 'safety-protocols', value: evaluation.performanceAnalysis.safetyProtocols },
+  ] : [];
+
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* Left Panel: Scenario & Video */}
@@ -192,7 +233,9 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
         </CardContent>
         <CardHeader>
           <CardTitle className="font-headline">{scenario.title}</CardTitle>
-          <CardDescription className="pt-2">{scenario.description}</CardDescription>
+          <CardDescription className="pt-2">{scenario.context}</CardDescription>
+          <div className="pt-2 text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: scenario.description }} />
+          {renderStats(scenario.stats)}
         </CardHeader>
       </Card>
 
@@ -301,26 +344,58 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                   <p className="text-sm text-red-500">0.3s improvement</p>
                 </Card>
               </div>
-              
-              {/* AI Feedback */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Lightbulb className="w-5 h-5 text-yellow-400" />
-                    AI Feedback
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-muted-foreground">
-                    {evaluation.feedback.split('- ').filter(item => item.trim() !== '').map((point, index) => (
-                      <li key={index} className="flex gap-2">
-                        <CheckCircle2 className="w-5 h-5 mt-1 text-primary flex-shrink-0" />
-                        <span>{point.trim()}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {/* AI Feedback */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Lightbulb className="w-5 h-5 text-yellow-400" />
+                      AI Feedback
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3 text-muted-foreground">
+                      {evaluation.feedback.split('- ').filter(item => item.trim() !== '').map((point, index) => (
+                        <li key={index} className="flex gap-2">
+                          <CheckCircle2 className="w-5 h-5 mt-1 text-primary flex-shrink-0" />
+                          <span>{point.trim()}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                {/* Performance Chart */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <BarChart className="w-5 h-5 text-accent" />
+                      Performance Analysis
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                     <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[250px]">
+                      <RadarChart data={chartData}>
+                        <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
+                        <PolarAngleAxis dataKey="metric" />
+                        <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} />
+                        <PolarGrid />
+                        <Radar
+                          dataKey="value"
+                          fill="var(--color-value)"
+                          fillOpacity={0.6}
+                          stroke="var(--color-value)"
+                          dot={{
+                            r: 4,
+                            fillOpacity: 1,
+                          }}
+                        />
+                      </RadarChart>
+                    </ChartContainer>
+                  </CardContent>
+                </Card>
+              </div>
 
                <div className="pt-4 text-center">
                  <Button onClick={handleReset}>
