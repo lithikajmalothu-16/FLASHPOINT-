@@ -21,7 +21,7 @@
     {
       "id": "scenario-fire_emergency_response_001",
       "description": "A multi-story building with fire and smoke.",
-      "imageUrl": "https://images.unsplash.com/photo-1516567832553-66232148f74c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidWlsZGluZyUyMGZpcmV8ZW58MHx8fHwxNzYyNjYyNjYxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1516567832553-66232148f74c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidWlsZGluZyUyMGZpcmV8ZW58MHx8fHwxNzYyNjYyNjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "building fire"
     },
     {
@@ -39,13 +39,13 @@
     {
       "id": "initial-gas-leak",
       "description": "A gas stove with a visible leak.",
-      "imageUrl": "https://images.unsplash.com/photo-1753156466385-25f3df8e6f81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnYXMlMjBsZWFrfGVufDB8fHx8MTc2MjY2NDc1MXww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1753156466385-25f3df8e6f81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnYXMlMjBsZWFrfGVufDB8fHx8MTc2MjY2NDc1MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "gas leak"
     },
     {
       "id": "initial-cardiac-arrest",
       "description": "A person clutching their chest in a public place.",
-      "imageUrl": "https://images.unsplash.com/photo-1513224502586-d1e602410265?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoZWFydCUyMGF0dGFja3xlbnwwfHx8fDE3NjI2NjQ3NTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1513224502586-d1e602410265?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoZWFydCUyMGF0dGFja3xlbnwwfHx8fDE3NjI2NjQ3NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "heart attack"
     },
     {
@@ -69,13 +69,13 @@
     {
       "id": "outcome-neutral-1",
       "description": "Paramedics helping an injured person.",
-      "imageUrl": "https://images.unsplash.com/photo-1722974180453-305758503804?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwYXJhbWVkaWNzJTIwaGVscGluZ3xlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1722974180453-305758503804?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwYXJhbWVkaWNzJTIwaGVscGluZ3xlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "paramedics helping"
     },
     {
       "id": "outcome-bad-1",
       "description": "A building that has collapsed into rubble.",
-      "imageUrl": "https://images.unsplash.com/photo-1543770544-a4c949d66f4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdHJ1Y3R1cmUlMjBjb2xsYXBzZXxlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1543770544-a4c949d66f4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdHJ1Y3R1cmUlMjBjb2xsYXBzZXxlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "structure collapse"
     },
     {
@@ -87,7 +87,7 @@
     {
       "id": "outcome-neutral-2",
       "description": "A fire truck arriving at the scene of a fire.",
-      "imageUrl": "https://images.unsplash.com/photo-1627643736393-5326f383d180?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmaXJlJTIwdHJ1Y2slMjBhcnJpdmluZ3xlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1627643736393-5326f383d180?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmaXJlJTIwdHJ1Y2slMjBhcnJpdmluZ3xlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fire truck arriving"
     },
     {
@@ -99,26 +99,26 @@
     {
       "id": "outcome-good-3",
       "description": "People being rescued from floodwaters by a boat.",
-      "imageUrl": "https://images.unsplash.com/photo-1625890916462-c79eb270068c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxib2F0JTIwcmVzY3VlfGVufDB8fHx8MTc2MjY2MjY2MXww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1625890916462-c79eb270068c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxib2F0JTIwcmVzY3VlfGVufDB8fHx8MTc2MjY2MjY2MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "boat rescue"
     },
     {
       "id": "outcome-neutral-3",
       "description": "People waiting on a rooftop for rescue during a flood.",
-      "imageUrl": "https://images.unsplash.com/photo-1671629193525-6f4015619ed8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3YWl0aW5nJTIwaGlnaCUyMGdyb3VuZHxlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1671629193525-6f4015619ed8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3YWl0aW5nJTIwaGlnaCUyMGdyb3VuZHxlbnwwfHx8fDE3NjI2NjI2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "waiting high ground"
     },
     {
       "id": "outcome-bad-3",
       "description": "A car being swept away by strong floodwaters.",
-      "imageUrl": "https://images.unsplash.com/photo-1613496204728-86c26da4bf32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzd2VwdCUyMGF3YXl8ZW58MHx8fHwxNzYyNjYyNjYxfDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1613496204728-86c26da4bf32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzd2VwdCUyMGF3YXl8ZW58MHx8fHwxNzYyNjYyNjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "swept away"
     },
     {
       "id": "initial-flood",
       "description": "A flooded city street with cars partially submerged.",
-      "imageUrl": "https://images.unsplash.com/photo-1583002238470-496695b28b7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmbG9vZHxlbnwwfHx8fDE3NjI2NzIwNzV8MA&ixlib-rb-4.1.0&q=80&w=1080",
-      "imageHint": "flood car"
+      "imageUrl": "https://images.unsplash.com/photo-1545276070-ec815f01c6ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmbG9vZCUyMHN0cmVldHxlbnwwfHx8fDE3NjI2ODQ1OTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flood street"
     }
   ]
 }
