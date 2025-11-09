@@ -177,8 +177,8 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
     // Use static image as a fallback
     setCurrentImageId(scenario.outcomeImageIds[index % scenario.outcomeImageIds.length]);
 
-    // ** ONLY RUN VIDEO FOR FIRE SCENARIO FOR NOW **
-    if (scenario.id === 'fire_emergency_response_001') {
+    // ** ONLY RUN VIDEO FOR FIRE AND FLOOD SCENARIOS FOR NOW **
+    if (scenario.id === 'fire_emergency_response_001' || scenario.id === 'flood_emergency_response_001') {
       try {
         toast({
           title: 'Generating Consequence Video',
@@ -242,7 +242,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
     return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   };
   
-  const showVideo = !!outcomeVideoUrl && scenario.id === 'fire_emergency_response_001';
+  const showVideo = !!outcomeVideoUrl && (scenario.id === 'fire_emergency_response_001' || scenario.id === 'flood_emergency_response_001');
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
@@ -346,7 +346,7 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                 )}
                 {gameState === 'evaluating' && !isLoadingChoices && (
                    <div className="flex flex-col items-center justify-center p-8 text-muted-foreground">
-                    {scenario.id === 'fire_emergency_response_001' ? (
+                    {scenario.id === 'fire_emergency_response_001' || scenario.id === 'flood_emergency_response_001' ? (
                       <>
                         <Film className="w-8 h-8 mr-4 animate-pulse" />
                         <p>Generating video of consequences...</p>
