@@ -12,6 +12,7 @@ import {
   Sparkles,
   Target,
   TrendingUp,
+  Lightbulb,
 } from 'lucide-react';
 import {
   PolarGrid,
@@ -165,20 +166,6 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
   };
 
   const currentImage = imageMap[currentImageId];
-
-  const chartData = useMemo(() => {
-    if (!evaluation || !evaluation.performanceAnalysis) {
-      return [];
-    }
-    return [
-      { dimension: 'Decision Speed', value: evaluation.performanceAnalysis.decisionSpeed },
-      { dimension: 'Accuracy', value: evaluation.performanceAnalysis.accuracy },
-      { dimension: 'Risk Assessment', value: evaluation.performanceAnalysis.riskAssessment },
-      { dimension: 'Resource Management', value: evaluation.performanceAnalysis.resourceManagement },
-      { dimension: 'Communication', value: evaluation.performanceAnalysis.communication },
-      { dimension: 'Safety Protocols', value: evaluation.performanceAnalysis.safetyProtocols },
-    ];
-  }, [evaluation]);
   
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -315,37 +302,25 @@ export function ScenarioClient({ scenario }: { scenario: Scenario }) {
                 </Card>
               </div>
               
-              {/* Performance Analysis */}
+              {/* AI Feedback */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Performance Analysis</CardTitle>
+                  <CardTitle className="flex items-center gap-2">
+                    <Lightbulb className="w-5 h-5 text-yellow-400" />
+                    AI Feedback
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                <ChartContainer
-                  config={chartConfig}
-                  className="w-full aspect-square h-[250px]"
-                >
-                  <ResponsiveContainer>
-                    <RadarChart data={chartData}>
-                      <ChartTooltip
-                        cursor={false}
-                        content={<ChartTooltipContent indicator="line" />}
-                      />
-                      <PolarAngleAxis dataKey="dimension" />
-                      <PolarRadiusAxis angle={30} domain={[0, 100]} />
-                      <PolarGrid />
-                      <Radar
-                        dataKey="value"
-                        fill="var(--color-value)"
-                        fillOpacity={0.6}
-                        stroke="var(--color-value)"
-                      />
-                    </RadarChart>
-                  </ResponsiveContainer>
-                </ChartContainer>
+                  <ul className="space-y-3 text-muted-foreground">
+                    {evaluation.feedback.split('- ').filter(item => item.trim() !== '').map((point, index) => (
+                      <li key={index} className="flex gap-2">
+                        <CheckCircle2 className="w-5 h-5 mt-1 text-primary flex-shrink-0" />
+                        <span>{point.trim()}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
-
 
                <div className="pt-4 text-center">
                  <Button onClick={handleReset}>
