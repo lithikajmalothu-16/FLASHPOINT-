@@ -9,6 +9,11 @@ import {
   EvaluateUserDecisionInput,
   EvaluateUserDecisionOutput,
 } from '@/ai/flows/evaluate-user-decisions';
+import {
+  generateScenarioImages,
+  GenerateScenarioImagesInput,
+  GenerateScenarioImagesOutput,
+} from '@/ai/flows/generate-scenario-images';
 
 export async function getDecisionChoices(
   input: GenerateDecisionChoicesInput
@@ -53,5 +58,18 @@ export async function getDecisionEvaluation(
         safetyProtocols: 95,
       },
     };
+  }
+}
+
+export async function getScenarioImages(
+  input: GenerateScenarioImagesInput
+): Promise<GenerateScenarioImagesOutput> {
+  try {
+    const result = await generateScenarioImages(input);
+    return result;
+  } catch (error) {
+    console.error('Error generating scenario images:', error);
+    // Return an empty array on failure
+    return { images: [] };
   }
 }
