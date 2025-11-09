@@ -110,8 +110,25 @@ const generateOutcomeVideoFlow = ai.defineFlow(
     }
 
     console.log('Video generation successful.');
+    
+    // 5. Download the video and convert to base64 data URI
+    const fetch = (await import('node-fetch')).default;
+    const videoDownloadResponse = await fetch(
+      `${video.media!.url}&key=${process.env.GEMINI_API_KEY}`
+    );
+     if (
+      !videoDownloadResponse ||
+      videoDownloadResponse.status !== 200 ||
+      !videoDownloadResponse.body
+    ) {
+      throw new Error('Failed to fetch video');
+    }
+    const videoBuffer = await videoDownloadResponse.arrayBuffer();
+    const videoBase64 = Buffer.from(videoBuffer).toString('base64');
+
+
     return {
-      videoUrl: video.media.url,
+      videoUrl: `data:video/mp4;base64,${videoBase64}`,
       outcomePrompt,
     };
   }
