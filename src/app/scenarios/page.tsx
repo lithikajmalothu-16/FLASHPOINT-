@@ -12,7 +12,16 @@ import type { ScenarioStats } from '@/types';
 
 const renderStats = (stats: string | ScenarioStats | undefined) => {
   if (typeof stats === 'string') {
-    return <div className="mt-4 text-xs text-muted-foreground" dangerouslySetInnerHTML={{ __html: stats }} />;
+    return (
+        <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+            {stats.split('<br>').map((stat, index) => (
+                <li key={index} className="flex items-start">
+                    <span className="mr-2 mt-1 block h-1.5 w-1.5 rounded-full bg-primary" />
+                    <span>{stat.replace(/• /g, '')}</span>
+                </li>
+            ))}
+        </ul>
+    );
   }
 
   if (typeof stats === 'object' && stats !== null) {
@@ -92,7 +101,7 @@ export default function ScenariosPage() {
                     </CardHeader>
                     <CardContent className="p-6 flex-1">
                       <CardTitle className="font-headline">{scenario.title}</CardTitle>
-                      <CardDescription className="mt-2" dangerouslySetInnerHTML={{ __html: scenario.description }}/>
+                      {renderStats(scenario.stats)}
                     </CardContent>
                     <CardFooter className="p-6 pt-0">
                        <Button asChild className="w-full">
