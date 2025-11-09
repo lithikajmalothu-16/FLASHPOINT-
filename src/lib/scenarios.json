@@ -66,7 +66,7 @@
   {
     "id": "electrical_hazard_response_001",
     "title": "Electrical Hazard Response",
-    "description": "Electrical panel with warning labels<br> Lockout/tagout devices on equipment<br> Person using insulated tools<br> Sparks/arc flash effects<br> PPE (rubber gloves, face shield)<br> Circuit breaker being switched off<br> **CLEAR VISUALS:** Electrical equipment, lockout tags, tools, safety gear, sparks",
+    "description": "A maintenance worker approaches a 480-volt electrical panel, first executing lockout/tagout procedures by switching off the circuit breaker, attaching a personal safety lock, and testing for zero voltage while wearing Class 0 rubber gloves and an arc-rated face shield. A nearby energized panel suddenly experiences an arc flash, producing intense light and heat as the worker immediately retreats to a safe distance. Emergency shutdown of the electrical system is initiated while the affected area is secured and assessed for damage.",
     "stats": "• 300+ electrocution deaths annually<br> • 4,000+ non-fatal injuries<br> • #5 cause of workplace deaths<br> • Construction industry: 52% of deaths<br> • 80% involve power lines/equipment",
     "scoringDimensions": "Power Deactivation, PPE Usage, Hazard Isolation",
     "initialImageId": "initial-electrical-hazard",
