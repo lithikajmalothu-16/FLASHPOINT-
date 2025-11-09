@@ -37,15 +37,22 @@ const prompt = ai.definePrompt({
   name: 'generateDecisionChoicesPrompt',
   input: {schema: GenerateDecisionChoicesInputSchema},
   output: {schema: GenerateDecisionChoicesOutputSchema},
-  prompt: `You are an AI assistant designed to generate possible decision choices for an emergency scenario.
+  prompt: `You are an AI assistant creating a training simulation for amateur emergency response officers.
 
-  Given the following scenario description, generate an array of 3-5 possible and realistic decision choices that a user could take.
+Your task is to generate exactly three challenging and tricky decision choices for the given emergency scenario. These choices will be presented to the trainee.
 
-  Scenario Description: {{{scenarioDescription}}}
+The options should be framed from the perspective of an officer arriving at the scene.
 
-  Ensure that each choice is clear, concise, and actionable.
-  The output should be an array of strings.
-  `,
+Your goal is to test their decision-making skills. To do this, structure the three choices as follows:
+1.  **The Most Efficient/Correct Action:** The professionally recommended, best-practice response that balances safety, effectiveness, and resource management.
+2.  **A Plausible but Less-Optimal Action:** A choice that seems reasonable on the surface but has a hidden flaw, is less efficient, or misses a critical priority.
+3.  **A Less Preferable Action:** A choice that is clearly not ideal, potentially unsafe, or a significant misjudgment of the situation.
+
+The choices should be tricky enough to make an amateur officer pause and think. They should be concise, clear, and actionable.
+
+Scenario Description: {{{scenarioDescription}}}
+
+Generate the three choices. The order of the choices in the output array should be randomized.`,
 });
 
 const generateDecisionChoicesFlow = ai.defineFlow(
