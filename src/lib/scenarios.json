@@ -2,7 +2,7 @@
   {
     "id": "significant_chemical_hazmat_spill_001",
     "title": "Significant Chemical/HazMat Spill",
-    "description": "Industrial or laboratory setting, requiring rapid containment and evacuation.",
+    "description": "A hazardous chemical container has ruptured in an industrial facility, releasing corrosive liquid across the floor as emergency responders in full PPE deploy absorbent barriers to contain the spread. Workers evacuate through marked routes while the incident commander activates the emergency eyewash station for an exposed employee. The critical window for containment, decontamination protocols, and coordinated evacuation determines whether this remains a localized incident or escalates into a facility-wide emergency.",
     "stats": "• 190,000+ chemical incidents annually in US<br> • 30,000+ injuries per year<br> • $500M+ in damages<br> • Manufacturing/labs highest risk<br> • 60% occur due to human error",
     "scoringDimensions": "Containment Speed, Evacuation Safety, PPE Adherence",
     "initialImageId": "initial-chemical-spill",
