@@ -57,9 +57,10 @@ const evaluateUserDecisionPrompt = ai.definePrompt({
 
   Evaluate the user's choice based on the scenario description and the specified scoring dimensions.
   Provide a score between 0 and 100.
-  Then, provide feedback as five concise key points. Each point should relate to the scene, the user's response, and the incident statistics.
+  Then, provide feedback as 3-5 sharp, concise bullet points. Each bullet point should start with a "-".
+  Each point should relate to the scene, the user's response, and the incident statistics.
   Explain why the choice resulted in that score and what could have been done differently.
-  Format the score as a number and feedback as a single block of text with each point on a new line. Do not use markdown for lists.
+  Format the score as a number and feedback as a single block of text.
   Do not include any introductory or concluding remarks.
   `,
 });
